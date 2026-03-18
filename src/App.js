@@ -1,28 +1,31 @@
+import { useState } from 'react';
+import { UtilisateurContext } from './UtilisateurContext';
 import FormulaireControle from './FormulaireControle';
 import FormulaireNonControle from './FormulaireNonControle';
 import TemperatureConvertor from './TemperatureConvertor';
-import { useState } from 'react';
-import { UtilisateurContext } from './UtilisateurContext';
 import Profil from './Profil';
 
-
 function App() {
-   const [utilisateur, setUtilisateur] = useState({
-    nom: 'Alice',
+  const [user, setUser] = useState({
+    nom: 'Kaoutar',
     connecte: true
   });
 
-   return (
-    <UtilisateurContext.Provider value={{ utilisateur, setUtilisateur }}>
-      <div>
-        <h1>TP React débutant</h1>
-        <h2>Formulaire Contrôlé</h2>
+  return (
+    <UtilisateurContext.Provider value={{ utilisateur: user, setUtilisateur: setUser }}>
+      <div style={{ margin: '20px' }}>
+        <h1>Mini TP React</h1>
+
+        <h3>Formulaire contrôlé</h3>
         <FormulaireControle />
-        <h2>Formulaire Non-Contrôlé</h2>
+
+        <h3>Formulaire non contrôlé</h3>
         <FormulaireNonControle />
-        <h2>Lifting State Up</h2>
+
+        <h3>Température</h3>
         <TemperatureConvertor />
-        <h2>Profil Utilisateur</h2>
+
+        <h3>Profil</h3>
         <Profil />
       </div>
     </UtilisateurContext.Provider>

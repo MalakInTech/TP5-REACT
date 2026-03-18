@@ -1,23 +1,22 @@
 import { useRef } from 'react';
 
 function FormulaireNonControle() {
-  const nomRef = useRef();
-  const emailRef = useRef();
+  const nomInput = useRef(null);
+  const emailInput = useRef(null);
 
-  const handleSubmit = (e) => {
+  const envoyerFormulaire = (e) => {
     e.preventDefault();
-    const nom = nomRef.current.value;
-    const email = emailRef.current.value;
-    alert(`Nom : ${nom}, Email : ${email}`);
+    alert(`Nom : ${nomInput.current.value} | Email : ${emailInput.current.value}`);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" ref={nomRef} placeholder="Nom" />
-      <input type="email" ref={emailRef} placeholder="Email" />
-      <button type="submit">Envoyer</button>
+    <form onSubmit={envoyerFormulaire}>
+      <input type="text" ref={nomInput} placeholder="Nom" />
+      <input type="email" ref={emailInput} placeholder="Email" />
+      <button type="submit">Valider</button>
     </form>
   );
+
 }
 
 export default FormulaireNonControle;

@@ -4,7 +4,7 @@ import { UtilisateurContext } from './UtilisateurContext';
 function Profil() {
   const { utilisateur, setUtilisateur } = useContext(UtilisateurContext);
 
-  const deconnexion = () => {
+  const handleLogout = () => {
     setUtilisateur({ nom: '', connecte: false });
   };
 
@@ -12,13 +12,11 @@ function Profil() {
     <div>
       {utilisateur.connecte ? (
         <>
-          <p>Bienvenue, {utilisateur.nom}</p>
-
-          <button onClick={deconnexion}>Se déconnecter</button>
+          <h4>Bonjour {utilisateur.nom}</h4>
+          <button onClick={handleLogout}>Logout</button>
         </>
       ) : (
-        <p>Veuillez vous connecter. </p>
-
+        <p>Utilisateur non connecté</p>
       )}
     </div>
   );

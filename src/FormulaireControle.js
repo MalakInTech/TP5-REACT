@@ -1,29 +1,40 @@
 import { useState } from 'react';
 
 function FormulaireControle() {
-  const [nom, setNom] = useState('');
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    nom: '',
+    email: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Nom : ${nom}, Email : ${email}`);
+    alert(`Nom : ${formData.nom} | Email : ${formData.email}`);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={nom}
-        onChange={(e) => setNom(e.target.value)}
+        name="nom"
+        value={formData.nom}
+        onChange={handleChange}
         placeholder="Nom"
       />
       <input
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
         placeholder="Email"
       />
-      <button type="submit">Envoyer</button>
+      <button type="submit">Valider</button>
     </form>
   );
 }

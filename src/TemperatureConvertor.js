@@ -2,20 +2,20 @@ import { useState } from 'react';
 import TemperatureInput from './TemperatureInput';
 
 function TemperatureConvertor() {
-  const [celsius, setCelsius] = useState('');
+  const [temperature, setTemperature] = useState('');
 
   return (
     <div>
       <TemperatureInput
-        temperature={celsius}
-        onTemperatureChange={setCelsius}
+        value={temperature}
+        onChangeTemp={setTemperature}
       />
-      <p>
-        {celsius
-          ? `Température saisie : ${celsius} °C`
-          : 'Aucune température saisie'}
-      </p>
 
+      <p>
+        {temperature !== ''
+          ? `Valeur actuelle : ${temperature} °C`
+          : 'Veuillez entrer une valeur'}
+      </p>
     </div>
   );
 }

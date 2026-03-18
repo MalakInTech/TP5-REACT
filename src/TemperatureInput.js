@@ -1,10 +1,10 @@
-function TemperatureInput({ temperature, onTemperatureChange }) {
+function TemperatureInput({ value, onChangeTemp }) {
   return (
     <input
       type="number"
-      value={temperature}
-      onChange={(e) => onTemperatureChange(e.target.value)}
-      placeholder="Température °C"
+      value={value}
+      onChange={(e) => onChangeTemp(e.target.value)}
+      placeholder="Entrer température"
     />
   );
 }

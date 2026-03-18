@@ -21,7 +21,7 @@ Ce TP m'a appris à créer une application React simple pour :
 
 ## 📂 Structure du projet
 
-![Screen de structure](screens/Structureprojet.png)
+![Screen de structure](screens/StructureProjet.png)
 
 ---
 
